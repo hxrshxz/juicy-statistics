@@ -152,7 +152,23 @@ function drawCharts () {
   chart.draw(data, {
     title: 'Challenge Tags Distribution'
   })
-};
+
+  // Spam Statistics ----
+  const spamData = [
+    ['Type', 'Count'],
+    ['Spam Pull Requests', spamStats.totalSpamPRs],
+    ['Spam Issues', spamStats.totalSpamIssues]
+  ]
+  data = google.visualization.arrayToDataTable(spamData)
+
+  chart = new google.visualization.ColumnChart(document.getElementById('spamChart'))
+  chart.draw(data, {
+    title: 'Spam Statistics (Last 30 Days)',
+    legend: { position: 'none' },
+    hAxis: { title: 'Type' },
+    vAxis: { title: 'Count', minValue: 0 }
+  })
+}
 
 document.onload = adjust
 window.onresize = adjust
