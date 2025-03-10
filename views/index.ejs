@@ -55,6 +55,7 @@
       githubReleases = parseInt(githubReleases, 10)
       let categories = "<%=categories%>"
       let tags = "<%=tags%>"
+      let spamStats = "<%=JSON.stringify(spamStats)%>"
     </script>
     <script type="text/javascript" src="script.js"></script>
 </head>
@@ -151,6 +152,34 @@
         </div>
     </div>
 </div>
+
+<div class="wide">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Spam Report (Last 30 Days)</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Spam Pull Requests</h6>
+                            <h2 class="card-text" id="spamPRCount"><%=spamStats.totalSpamPRs%></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">Spam Issues</h6>
+                            <h2 class="card-text" id="spamIssueCount"><%=spamStats.totalSpamIssues%></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="spamChart" class="box"></div>
+        </div>
+    </div>
+</div>
+
 <br/><br/>
 <br/><br/>
 </body>
